@@ -13991,7 +13991,7 @@ var Hls = /*#__PURE__*/function () {
   }], [{
     key: "version",
     get: function get() {
-      return undefined;
+      return "1.0.7-adf";
     }
   }, {
     key: "Events",
