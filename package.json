@@ -1,4 +1,13 @@
 {
   "name": "hls.js",
-  "main": "./dist/hls.js"
+  "homepage": "https://github.com/albertdaurell/hls.js",
+  "main": "./dist/hls.js",
+  "types": "./dist/hls.js.d.ts",
+  "files": [
+    "dist/**/*",
+    "src/**/*"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }
