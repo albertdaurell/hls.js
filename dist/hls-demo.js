@@ -401,7 +401,7 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 
 
@@ -42185,6 +42185,11 @@ module.exports = {
     description: 'Redundant levels with subtitle and audio track groups',
     abr: true,
     skipFunctionalTests: true
+  },
+  startDelimiterOverlappingBetweenPESPackets: {
+    url: 'https://hlsjs-test-streams-wistia.s3.amazonaws.com/start-delimiter.m3u8',
+    description: "A stream with the start delimiter overlapping between PES packets.\n       Related to https://github.com/video-dev/hls.js/issues/3834, where Apple Silicon chips throw decoding errors if\n       NAL units are not starting right at the beginning of the PES packet when using hardware accelerated decoding.",
+    abr: false
   }
 };
 

@@ -860,18 +860,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _controller_cap_level_controller__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./controller/cap-level-controller */ "./src/controller/cap-level-controller.ts");
 /* harmony import */ var _controller_fps_controller__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./controller/fps-controller */ "./src/controller/fps-controller.ts");
 /* harmony import */ var _controller_eme_controller__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./controller/eme-controller */ "./src/controller/eme-controller.ts");
-/* harmony import */ var _utils_xhr_loader__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./utils/xhr-loader */ "./src/utils/xhr-loader.ts");
-/* harmony import */ var _utils_fetch_loader__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./utils/fetch-loader */ "./src/utils/fetch-loader.ts");
-/* harmony import */ var _utils_cues__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./utils/cues */ "./src/utils/cues.ts");
-/* harmony import */ var _utils_mediakeys_helper__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./utils/mediakeys-helper */ "./src/utils/mediakeys-helper.ts");
-/* harmony import */ var _utils_logger__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./utils/logger */ "./src/utils/logger.ts");
+/* harmony import */ var _controller_cmcd_controller__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./controller/cmcd-controller */ "./src/controller/cmcd-controller.ts");
+/* harmony import */ var _utils_xhr_loader__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./utils/xhr-loader */ "./src/utils/xhr-loader.ts");
+/* harmony import */ var _utils_fetch_loader__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./utils/fetch-loader */ "./src/utils/fetch-loader.ts");
+/* harmony import */ var _utils_cues__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./utils/cues */ "./src/utils/cues.ts");
+/* harmony import */ var _utils_mediakeys_helper__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./utils/mediakeys-helper */ "./src/utils/mediakeys-helper.ts");
+/* harmony import */ var _utils_logger__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./utils/logger */ "./src/utils/logger.ts");
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -976,7 +978,7 @@ var hlsDefaultConfig = _objectSpread(_objectSpread({
   // used by fps-controller
   appendErrorMaxRetry: 3,
   // used by buffer-controller
-  loader: _utils_xhr_loader__WEBPACK_IMPORTED_MODULE_10__["default"],
+  loader: _utils_xhr_loader__WEBPACK_IMPORTED_MODULE_11__["default"],
   // loader: FetchLoader,
   fLoader: undefined,
   // used by fragment-loader
@@ -1026,23 +1028,25 @@ var hlsDefaultConfig = _objectSpread(_objectSpread({
   // used by eme-controller
   drmSystemOptions: {},
   // used by eme-controller
-  requestMediaKeySystemAccessFunc: _utils_mediakeys_helper__WEBPACK_IMPORTED_MODULE_13__["requestMediaKeySystemAccess"],
+  requestMediaKeySystemAccessFunc: _utils_mediakeys_helper__WEBPACK_IMPORTED_MODULE_14__["requestMediaKeySystemAccess"],
   // used by eme-controller
   testBandwidth: true,
   progressive: false,
-  lowLatencyMode: true
+  lowLatencyMode: true,
+  cmcd: undefined
 }, timelineConfig()), {}, {
   subtitleStreamController:  true ? _controller_subtitle_stream_controller__WEBPACK_IMPORTED_MODULE_3__["SubtitleStreamController"] : undefined,
   subtitleTrackController:  true ? _controller_subtitle_track_controller__WEBPACK_IMPORTED_MODULE_4__["default"] : undefined,
   timelineController:  true ? _controller_timeline_controller__WEBPACK_IMPORTED_MODULE_6__["TimelineController"] : undefined,
   audioStreamController:  true ? _controller_audio_stream_controller__WEBPACK_IMPORTED_MODULE_1__["default"] : undefined,
   audioTrackController:  true ? _controller_audio_track_controller__WEBPACK_IMPORTED_MODULE_2__["default"] : undefined,
-  emeController:  true ? _controller_eme_controller__WEBPACK_IMPORTED_MODULE_9__["default"] : undefined
+  emeController:  true ? _controller_eme_controller__WEBPACK_IMPORTED_MODULE_9__["default"] : undefined,
+  cmcdController:  true ? _controller_cmcd_controller__WEBPACK_IMPORTED_MODULE_10__["default"] : undefined
 });
 
 function timelineConfig() {
   return {
-    cueHandler: _utils_cues__WEBPACK_IMPORTED_MODULE_12__["default"],
+    cueHandler: _utils_cues__WEBPACK_IMPORTED_MODULE_13__["default"],
     // used by timeline-controller
     enableCEA708Captions: true,
     // used by timeline-controller
@@ -1088,18 +1092,18 @@ function mergeConfig(defaultConfig, userConfig) {
 function enableStreamingMode(config) {
   var currentLoader = config.loader;
 
-  if (currentLoader !== _utils_fetch_loader__WEBPACK_IMPORTED_MODULE_11__["default"] && currentLoader !== _utils_xhr_loader__WEBPACK_IMPORTED_MODULE_10__["default"]) {
+  if (currentLoader !== _utils_fetch_loader__WEBPACK_IMPORTED_MODULE_12__["default"] && currentLoader !== _utils_xhr_loader__WEBPACK_IMPORTED_MODULE_11__["default"]) {
     // If a developer has configured their own loader, respect that choice
-    _utils_logger__WEBPACK_IMPORTED_MODULE_14__["logger"].log('[config]: Custom loader detected, cannot enable progressive streaming');
+    _utils_logger__WEBPACK_IMPORTED_MODULE_15__["logger"].log('[config]: Custom loader detected, cannot enable progressive streaming');
     config.progressive = false;
   } else {
-    var canStreamProgressively = Object(_utils_fetch_loader__WEBPACK_IMPORTED_MODULE_11__["fetchSupported"])();
+    var canStreamProgressively = Object(_utils_fetch_loader__WEBPACK_IMPORTED_MODULE_12__["fetchSupported"])();
 
     if (canStreamProgressively) {
-      config.loader = _utils_fetch_loader__WEBPACK_IMPORTED_MODULE_11__["default"];
+      config.loader = _utils_fetch_loader__WEBPACK_IMPORTED_MODULE_12__["default"];
       config.progressive = true;
       config.enableSoftwareAES = true;
-      _utils_logger__WEBPACK_IMPORTED_MODULE_14__["logger"].log('[config]: Progressive streaming enabled, using FetchLoader');
+      _utils_logger__WEBPACK_IMPORTED_MODULE_15__["logger"].log('[config]: Progressive streaming enabled, using FetchLoader');
     }
   }
 }
@@ -1127,7 +1131,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 
 
@@ -2357,7 +2361,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _types_loader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../types/loader */ "./src/types/loader.ts");
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; _setPrototypeOf(subClass, superClass); }
 
@@ -2912,7 +2916,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
@@ -3030,7 +3034,23 @@ var BaseStreamController = /*#__PURE__*/function (_TaskLoop) {
     // rationale is that in case there are any buffered ranges after, it means that there are unbuffered portion in between
     // so we should not switch to ENDED in that case, to be able to buffer them
 
-    if (!levelDetails.live && fragCurrent && fragCurrent.sn === levelDetails.endSN && !bufferInfo.nextStart) {
+    if (!levelDetails.live && fragCurrent && // NOTE: Because of the way parts are currently parsed/represented in the playlist, we can end up
+    // in situations where the current fragment is actually greater than levelDetails.endSN. While
+    // this feels like the "wrong place" to account for that, this is a narrower/safer change than
+    // updating e.g. M3U8Parser::parseLevelPlaylist().
+    fragCurrent.sn >= levelDetails.endSN && !bufferInfo.nextStart) {
+      var partList = levelDetails.partList; // Since the last part isn't guaranteed to correspond to fragCurrent for ll-hls, check instead if the last part is buffered.
+
+      if (partList !== null && partList !== void 0 && partList.length) {
+        var lastPart = partList[partList.length - 1]; // Checking the midpoint of the part for potential margin of error and related issues.
+        // NOTE: Technically I believe parts could yield content that is < the computed duration (including potential a duration of 0)
+        // and still be spec-compliant, so there may still be edge cases here. Likewise, there could be issues in end of stream
+        // part mismatches for independent audio and video playlists/segments.
+
+        var lastPartBuffered = _utils_buffer_helper__WEBPACK_IMPORTED_MODULE_3__["BufferHelper"].isBuffered(this.media, lastPart.start + lastPart.duration / 2);
+        return lastPartBuffered;
+      }
+
       var fragState = fragmentTracker.getState(fragCurrent);
       return fragState === _fragment_tracker__WEBPACK_IMPORTED_MODULE_2__["FragmentState"].PARTIAL || fragState === _fragment_tracker__WEBPACK_IMPORTED_MODULE_2__["FragmentState"].OK;
     }
@@ -5144,7 +5164,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../events */ "./src/events.ts");
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 /*
  * cap stream level to media size dimension controller
@@ -5407,6 +5427,577 @@ var CapLevelController = /*#__PURE__*/function () {
 
 /***/ }),
 
+/***/ "./src/controller/cmcd-controller.ts":
+/*!*******************************************!*\
+  !*** ./src/controller/cmcd-controller.ts ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return CMCDController; });
+/* harmony import */ var _events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../events */ "./src/events.ts");
+/* harmony import */ var _types_cmcd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../types/cmcd */ "./src/types/cmcd.ts");
+/* harmony import */ var _utils_buffer_helper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/buffer-helper */ "./src/utils/buffer-helper.ts");
+/* harmony import */ var _utils_logger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/logger */ "./src/utils/logger.ts");
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _createForOfIteratorHelperLoose(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (it) return (it = it.call(o)).next.bind(it); if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; return function () { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+
+
+
+
+/**
+ * Controller to deal with Common Media Client Data (CMCD)
+ * @see https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5004-final.pdf
+ */
+
+var CMCDController = /*#__PURE__*/function () {
+  // eslint-disable-line no-restricted-globals
+  // eslint-disable-line no-restricted-globals
+  function CMCDController(hls) {
+    var _this = this;
+
+    this.hls = void 0;
+    this.config = void 0;
+    this.media = void 0;
+    this.sid = void 0;
+    this.cid = void 0;
+    this.useHeaders = false;
+    this.initialized = false;
+    this.starved = false;
+    this.buffering = true;
+    this.audioBuffer = void 0;
+    this.videoBuffer = void 0;
+
+    this.onWaiting = function () {
+      if (_this.initialized) {
+        _this.starved = true;
+      }
+
+      _this.buffering = true;
+    };
+
+    this.onPlaying = function () {
+      if (!_this.initialized) {
+        _this.initialized = true;
+      }
+
+      _this.buffering = false;
+    };
+
+    this.applyPlaylistData = function (context) {
+      try {
+        _this.apply(context, {
+          ot: _types_cmcd__WEBPACK_IMPORTED_MODULE_1__["CMCDObjectType"].MANIFEST,
+          su: !_this.initialized
+        });
+      } catch (error) {
+        _utils_logger__WEBPACK_IMPORTED_MODULE_3__["logger"].warn('Could not generate manifest CMCD data.', error);
+      }
+    };
+
+    this.applyFragmentData = function (context) {
+      try {
+        var fragment = context.frag;
+        var level = _this.hls.levels[fragment.level];
+
+        var ot = _this.getObjectType(fragment);
+
+        var data = {
+          d: fragment.duration * 1000,
+          ot: ot
+        };
+
+        if (ot === _types_cmcd__WEBPACK_IMPORTED_MODULE_1__["CMCDObjectType"].VIDEO || ot === _types_cmcd__WEBPACK_IMPORTED_MODULE_1__["CMCDObjectType"].AUDIO || ot == _types_cmcd__WEBPACK_IMPORTED_MODULE_1__["CMCDObjectType"].MUXED) {
+          data.br = level.bitrate / 1000;
+          data.tb = _this.getTopBandwidth(ot) / 1000;
+          data.bl = _this.getBufferLength(ot);
+        }
+
+        _this.apply(context, data);
+      } catch (error) {
+        _utils_logger__WEBPACK_IMPORTED_MODULE_3__["logger"].warn('Could not generate segment CMCD data.', error);
+      }
+    };
+
+    this.hls = hls;
+    var config = this.config = hls.config;
+    var cmcd = config.cmcd;
+
+    if (cmcd != null) {
+      config.pLoader = this.createPlaylistLoader();
+      config.fLoader = this.createFragmentLoader();
+      this.sid = cmcd.sessionId || CMCDController.uuid();
+      this.cid = cmcd.contentId;
+      this.useHeaders = cmcd.useHeaders === true;
+      this.registerListeners();
+    }
+  }
+
+  var _proto = CMCDController.prototype;
+
+  _proto.registerListeners = function registerListeners() {
+    var hls = this.hls;
+    hls.on(_events__WEBPACK_IMPORTED_MODULE_0__["Events"].MEDIA_ATTACHED, this.onMediaAttached, this);
+    hls.on(_events__WEBPACK_IMPORTED_MODULE_0__["Events"].MEDIA_DETACHED, this.onMediaDetached, this);
+    hls.on(_events__WEBPACK_IMPORTED_MODULE_0__["Events"].BUFFER_CREATED, this.onBufferCreated, this);
+  };
+
+  _proto.unregisterListeners = function unregisterListeners() {
+    var hls = this.hls;
+    hls.off(_events__WEBPACK_IMPORTED_MODULE_0__["Events"].MEDIA_ATTACHED, this.onMediaAttached, this);
+    hls.off(_events__WEBPACK_IMPORTED_MODULE_0__["Events"].MEDIA_DETACHED, this.onMediaDetached, this);
+    hls.off(_events__WEBPACK_IMPORTED_MODULE_0__["Events"].BUFFER_CREATED, this.onBufferCreated, this);
+    this.onMediaDetached();
+  };
+
+  _proto.destroy = function destroy() {
+    this.unregisterListeners(); // @ts-ignore
+
+    this.hls = this.config = this.audioBuffer = this.videoBuffer = null;
+  };
+
+  _proto.onMediaAttached = function onMediaAttached(event, data) {
+    this.media = data.media;
+    this.media.addEventListener('waiting', this.onWaiting);
+    this.media.addEventListener('playing', this.onPlaying);
+  };
+
+  _proto.onMediaDetached = function onMediaDetached() {
+    if (!this.media) {
+      return;
+    }
+
+    this.media.removeEventListener('waiting', this.onWaiting);
+    this.media.removeEventListener('playing', this.onPlaying); // @ts-ignore
+
+    this.media = null;
+  };
+
+  _proto.onBufferCreated = function onBufferCreated(event, data) {
+    var _data$tracks$audio, _data$tracks$video;
+
+    this.audioBuffer = (_data$tracks$audio = data.tracks.audio) === null || _data$tracks$audio === void 0 ? void 0 : _data$tracks$audio.buffer;
+    this.videoBuffer = (_data$tracks$video = data.tracks.video) === null || _data$tracks$video === void 0 ? void 0 : _data$tracks$video.buffer;
+  };
+
+  /**
+   * Create baseline CMCD data
+   */
+  _proto.createData = function createData() {
+    var _this$media;
+
+    return {
+      v: _types_cmcd__WEBPACK_IMPORTED_MODULE_1__["CMCDVersion"],
+      sf: _types_cmcd__WEBPACK_IMPORTED_MODULE_1__["CMCDStreamingFormat"].HLS,
+      sid: this.sid,
+      cid: this.cid,
+      pr: (_this$media = this.media) === null || _this$media === void 0 ? void 0 : _this$media.playbackRate,
+      mtp: this.hls.bandwidthEstimate / 1000
+    };
+  }
+  /**
+   * Apply CMCD data to a request.
+   */
+  ;
+
+  _proto.apply = function apply(context, data) {
+    if (data === void 0) {
+      data = {};
+    }
+
+    // apply baseline data
+    _extends(data, this.createData());
+
+    var isVideo = data.ot === _types_cmcd__WEBPACK_IMPORTED_MODULE_1__["CMCDObjectType"].INIT || data.ot === _types_cmcd__WEBPACK_IMPORTED_MODULE_1__["CMCDObjectType"].VIDEO || data.ot === _types_cmcd__WEBPACK_IMPORTED_MODULE_1__["CMCDObjectType"].MUXED;
+
+    if (this.starved && isVideo) {
+      data.bs = true;
+      data.su = true;
+      this.starved = false;
+    }
+
+    if (data.su == null) {
+      data.su = this.buffering;
+    } // TODO: Implement rtp, nrr, nor, dl
+
+
+    if (this.useHeaders) {
+      var headers = CMCDController.toHeaders(data);
+
+      if (!Object.keys(headers).length) {
+        return;
+      }
+
+      if (!context.headers) {
+        context.headers = {};
+      }
+
+      _extends(context.headers, headers);
+    } else {
+      var query = CMCDController.toQuery(data);
+
+      if (!query) {
+        return;
+      }
+
+      context.url = CMCDController.appendQueryToUri(context.url, query);
+    }
+  }
+  /**
+   * Apply CMCD data to a manifest request.
+   */
+  ;
+
+  /**
+   * The CMCD object type.
+   */
+  _proto.getObjectType = function getObjectType(fragment) {
+    var type = fragment.type;
+
+    if (type === 'subtitle') {
+      return _types_cmcd__WEBPACK_IMPORTED_MODULE_1__["CMCDObjectType"].TIMED_TEXT;
+    }
+
+    if (fragment.sn === 'initSegment') {
+      return _types_cmcd__WEBPACK_IMPORTED_MODULE_1__["CMCDObjectType"].INIT;
+    }
+
+    if (type === 'audio') {
+      return _types_cmcd__WEBPACK_IMPORTED_MODULE_1__["CMCDObjectType"].AUDIO;
+    }
+
+    if (type === 'main') {
+      if (!this.hls.audioTracks.length) {
+        return _types_cmcd__WEBPACK_IMPORTED_MODULE_1__["CMCDObjectType"].MUXED;
+      }
+
+      return _types_cmcd__WEBPACK_IMPORTED_MODULE_1__["CMCDObjectType"].VIDEO;
+    }
+
+    return undefined;
+  }
+  /**
+   * Get the highest bitrate.
+   */
+  ;
+
+  _proto.getTopBandwidth = function getTopBandwidth(type) {
+    var bitrate = 0;
+    var levels;
+    var hls = this.hls;
+
+    if (type === _types_cmcd__WEBPACK_IMPORTED_MODULE_1__["CMCDObjectType"].AUDIO) {
+      levels = hls.audioTracks;
+    } else {
+      var max = hls.maxAutoLevel;
+      var len = max > -1 ? max + 1 : hls.levels.length;
+      levels = hls.levels.slice(0, len);
+    }
+
+    for (var _iterator = _createForOfIteratorHelperLoose(levels), _step; !(_step = _iterator()).done;) {
+      var level = _step.value;
+
+      if (level.bitrate > bitrate) {
+        bitrate = level.bitrate;
+      }
+    }
+
+    return bitrate > 0 ? bitrate : NaN;
+  }
+  /**
+   * Get the buffer length for a media type in milliseconds
+   */
+  ;
+
+  _proto.getBufferLength = function getBufferLength(type) {
+    var media = this.hls.media;
+    var buffer = type === _types_cmcd__WEBPACK_IMPORTED_MODULE_1__["CMCDObjectType"].AUDIO ? this.audioBuffer : this.videoBuffer;
+
+    if (!buffer || !media) {
+      return NaN;
+    }
+
+    var info = _utils_buffer_helper__WEBPACK_IMPORTED_MODULE_2__["BufferHelper"].bufferInfo(buffer, media.currentTime, this.config.maxBufferHole);
+    return info.len * 1000;
+  }
+  /**
+   * Create a playlist loader
+   */
+  ;
+
+  _proto.createPlaylistLoader = function createPlaylistLoader() {
+    var pLoader = this.config.pLoader;
+    var apply = this.applyPlaylistData;
+    var Ctor = pLoader || this.config.loader;
+    return /*#__PURE__*/function () {
+      function CmcdPlaylistLoader(config) {
+        this.loader = void 0;
+        this.loader = new Ctor(config);
+      }
+
+      var _proto2 = CmcdPlaylistLoader.prototype;
+
+      _proto2.destroy = function destroy() {
+        this.loader.destroy();
+      };
+
+      _proto2.abort = function abort() {
+        this.loader.abort();
+      };
+
+      _proto2.load = function load(context, config, callbacks) {
+        apply(context);
+        this.loader.load(context, config, callbacks);
+      };
+
+      _createClass(CmcdPlaylistLoader, [{
+        key: "stats",
+        get: function get() {
+          return this.loader.stats;
+        }
+      }, {
+        key: "context",
+        get: function get() {
+          return this.loader.context;
+        }
+      }]);
+
+      return CmcdPlaylistLoader;
+    }();
+  }
+  /**
+   * Create a playlist loader
+   */
+  ;
+
+  _proto.createFragmentLoader = function createFragmentLoader() {
+    var fLoader = this.config.fLoader;
+    var apply = this.applyFragmentData;
+    var Ctor = fLoader || this.config.loader;
+    return /*#__PURE__*/function () {
+      function CmcdFragmentLoader(config) {
+        this.loader = void 0;
+        this.loader = new Ctor(config);
+      }
+
+      var _proto3 = CmcdFragmentLoader.prototype;
+
+      _proto3.destroy = function destroy() {
+        this.loader.destroy();
+      };
+
+      _proto3.abort = function abort() {
+        this.loader.abort();
+      };
+
+      _proto3.load = function load(context, config, callbacks) {
+        apply(context);
+        this.loader.load(context, config, callbacks);
+      };
+
+      _createClass(CmcdFragmentLoader, [{
+        key: "stats",
+        get: function get() {
+          return this.loader.stats;
+        }
+      }, {
+        key: "context",
+        get: function get() {
+          return this.loader.context;
+        }
+      }]);
+
+      return CmcdFragmentLoader;
+    }();
+  }
+  /**
+   * Generate a random v4 UUI
+   *
+   * @returns {string}
+   */
+  ;
+
+  CMCDController.uuid = function uuid() {
+    var url = URL.createObjectURL(new Blob());
+    var uuid = url.toString();
+    URL.revokeObjectURL(url);
+    return uuid.substr(uuid.lastIndexOf('/') + 1);
+  }
+  /**
+   * Serialize a CMCD data object according to the rules defined in the
+   * section 3.2 of
+   * [CTA-5004](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5004-final.pdf).
+   */
+  ;
+
+  CMCDController.serialize = function serialize(data) {
+    var results = [];
+
+    var isValid = function isValid(value) {
+      return !Number.isNaN(value) && value != null && value !== '' && value !== false;
+    };
+
+    var toRounded = function toRounded(value) {
+      return Math.round(value);
+    };
+
+    var toHundred = function toHundred(value) {
+      return toRounded(value / 100) * 100;
+    };
+
+    var toUrlSafe = function toUrlSafe(value) {
+      return encodeURIComponent(value);
+    };
+
+    var formatters = {
+      br: toRounded,
+      d: toRounded,
+      bl: toHundred,
+      dl: toHundred,
+      mtp: toHundred,
+      nor: toUrlSafe,
+      rtp: toHundred,
+      tb: toRounded
+    };
+    var keys = Object.keys(data || {}).sort();
+
+    for (var _iterator2 = _createForOfIteratorHelperLoose(keys), _step2; !(_step2 = _iterator2()).done;) {
+      var key = _step2.value;
+      var value = data[key]; // ignore invalid values
+
+      if (!isValid(value)) {
+        continue;
+      } // Version should only be reported if not equal to 1.
+
+
+      if (key === 'v' && value === 1) {
+        continue;
+      } // Playback rate should only be sent if not equal to 1.
+
+
+      if (key == 'pr' && value === 1) {
+        continue;
+      } // Certain values require special formatting
+
+
+      var formatter = formatters[key];
+
+      if (formatter) {
+        value = formatter(value);
+      } // Serialize the key/value pair
+
+
+      var type = typeof value;
+      var result = void 0;
+
+      if (key === 'ot' || key === 'sf' || key === 'st') {
+        result = key + "=" + value;
+      } else if (type === 'boolean') {
+        result = key;
+      } else if (type === 'number') {
+        result = key + "=" + value;
+      } else {
+        result = key + "=" + JSON.stringify(value);
+      }
+
+      results.push(result);
+    }
+
+    return results.join(',');
+  }
+  /**
+   * Convert a CMCD data object to request headers according to the rules
+   * defined in the section 2.1 and 3.2 of
+   * [CTA-5004](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5004-final.pdf).
+   */
+  ;
+
+  CMCDController.toHeaders = function toHeaders(data) {
+    var keys = Object.keys(data);
+    var headers = {};
+    var headerNames = ['Object', 'Request', 'Session', 'Status'];
+    var headerGroups = [{}, {}, {}, {}];
+    var headerMap = {
+      br: 0,
+      d: 0,
+      ot: 0,
+      tb: 0,
+      bl: 1,
+      dl: 1,
+      mtp: 1,
+      nor: 1,
+      nrr: 1,
+      su: 1,
+      cid: 2,
+      pr: 2,
+      sf: 2,
+      sid: 2,
+      st: 2,
+      v: 2,
+      bs: 3,
+      rtp: 3
+    };
+
+    for (var _i = 0, _keys = keys; _i < _keys.length; _i++) {
+      var key = _keys[_i];
+      // Unmapped fields are mapped to the Request header
+      var index = headerMap[key] != null ? headerMap[key] : 1;
+      headerGroups[index][key] = data[key];
+    }
+
+    for (var i = 0; i < headerGroups.length; i++) {
+      var value = CMCDController.serialize(headerGroups[i]);
+
+      if (value) {
+        headers["CMCD-" + headerNames[i]] = value;
+      }
+    }
+
+    return headers;
+  }
+  /**
+   * Convert a CMCD data object to query args according to the rules
+   * defined in the section 2.2 and 3.2 of
+   * [CTA-5004](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5004-final.pdf).
+   */
+  ;
+
+  CMCDController.toQuery = function toQuery(data) {
+    return "CMCD=" + encodeURIComponent(CMCDController.serialize(data));
+  }
+  /**
+   * Append query args to a uri.
+   */
+  ;
+
+  CMCDController.appendQueryToUri = function appendQueryToUri(uri, query) {
+    if (!query) {
+      return uri;
+    }
+
+    var separator = uri.includes('?') ? '&' : '?';
+    return "" + uri + separator + query;
+  };
+
+  return CMCDController;
+}();
+
+
+
+/***/ }),
+
 /***/ "./src/controller/eme-controller.ts":
 /*!******************************************!*\
   !*** ./src/controller/eme-controller.ts ***!
@@ -5422,7 +6013,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_mediakeys_helper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/mediakeys-helper */ "./src/utils/mediakeys-helper.ts");
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 /**
  * @author Stephan Hesse <disparat@gmail.com> | <tchakabam@gmail.com>
@@ -7116,13 +7707,13 @@ var GapController = /*#__PURE__*/function () {
   _proto._tryNudgeBuffer = function _tryNudgeBuffer() {
     var config = this.config,
         hls = this.hls,
-        media = this.media;
+        media = this.media,
+        nudgeRetry = this.nudgeRetry;
     var currentTime = media.currentTime;
-    var nudgeRetry = (this.nudgeRetry || 0) + 1;
-    this.nudgeRetry = nudgeRetry;
+    this.nudgeRetry++;
 
     if (nudgeRetry < config.nudgeMaxRetry) {
-      var targetTime = currentTime + nudgeRetry * config.nudgeOffset; // playback stalled in buffered area ... let's nudge currentTime to try to overcome this
+      var targetTime = currentTime + (nudgeRetry + 1) * config.nudgeOffset; // playback stalled in buffered area ... let's nudge currentTime to try to overcome this
 
       _utils_logger__WEBPACK_IMPORTED_MODULE_3__["logger"].warn("Nudging 'currentTime' from " + currentTime + " to " + targetTime);
       media.currentTime = targetTime;
@@ -7311,7 +7902,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_logger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/logger */ "./src/utils/logger.ts");
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 
 
@@ -7598,7 +8189,7 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; _setPrototypeOf(subClass, superClass); }
 
@@ -8410,8 +9001,6 @@ function mergeDetails(oldDetails, newDetails) {
   var ccOffset = 0;
   var PTSFrag;
   mapFragmentIntersection(oldDetails, newDetails, function (oldFrag, newFrag) {
-    var _currentInitSegment;
-
     if (oldFrag.relurl) {
       // Do not compare CC if the old fragment has no url. This is a level.fragmentHint used by LL-HLS parts.
       // It maybe be off by 1 if it was created before any parts or discontinuity tags were appended to the end
@@ -8445,10 +9034,19 @@ function mergeDetails(oldDetails, newDetails) {
     if (oldFrag.initSegment) {
       newFrag.initSegment = oldFrag.initSegment;
       currentInitSegment = oldFrag.initSegment;
-    } else if (!newFrag.initSegment || newFrag.initSegment.relurl == ((_currentInitSegment = currentInitSegment) === null || _currentInitSegment === void 0 ? void 0 : _currentInitSegment.relurl)) {
-      newFrag.initSegment = currentInitSegment;
     }
   });
+
+  if (currentInitSegment) {
+    var fragmentsToCheck = newDetails.fragmentHint ? newDetails.fragments.concat(newDetails.fragmentHint) : newDetails.fragments;
+    fragmentsToCheck.forEach(function (frag) {
+      var _currentInitSegment;
+
+      if (!frag.initSegment || frag.initSegment.relurl === ((_currentInitSegment = currentInitSegment) === null || _currentInitSegment === void 0 ? void 0 : _currentInitSegment.relurl)) {
+        frag.initSegment = currentInitSegment;
+      }
+    });
+  }
 
   if (newDetails.skippedSegments) {
     newDetails.deltaUpdateFailed = newDetails.fragments.some(function (frag) {
@@ -8698,7 +9296,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; _setPrototypeOf(subClass, superClass); }
 
@@ -10017,7 +10615,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _types_level__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../types/level */ "./src/types/level.ts");
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; _setPrototypeOf(subClass, superClass); }
 
@@ -10233,9 +10831,12 @@ var SubtitleStreamController = /*#__PURE__*/function (_BaseStreamController) {
 
     if (currentTrack !== null && currentTrack !== void 0 && currentTrack.details) {
       this.mediaBuffer = this.mediaBufferTimeRanges;
-      this.setInterval(TICK_INTERVAL);
     } else {
       this.mediaBuffer = null;
+    }
+
+    if (currentTrack) {
+      this.setInterval(TICK_INTERVAL);
     }
   } // Got a new set of subtitle fragments.
   ;
@@ -10368,17 +10969,10 @@ var SubtitleStreamController = /*#__PURE__*/function (_BaseStreamController) {
 
       if (targetBufferTime < end) {
         var maxFragLookUpTolerance = config.maxFragLookUpTolerance;
+        foundFrag = Object(_fragment_finders__WEBPACK_IMPORTED_MODULE_3__["findFragmentByPTS"])(fragPrevious, fragments, targetBufferTime, maxFragLookUpTolerance);
 
-        if (fragPrevious && trackDetails.hasProgramDateTime) {
-          foundFrag = Object(_fragment_finders__WEBPACK_IMPORTED_MODULE_3__["findFragmentByPDT"])(fragments, fragPrevious.endProgramDateTime, maxFragLookUpTolerance);
-        }
-
-        if (!foundFrag) {
-          foundFrag = Object(_fragment_finders__WEBPACK_IMPORTED_MODULE_3__["findFragmentByPTS"])(fragPrevious, fragments, targetBufferTime, maxFragLookUpTolerance);
-
-          if (!foundFrag && fragPrevious && fragPrevious.start < fragments[0].start) {
-            foundFrag = fragments[0];
-          }
+        if (!foundFrag && fragPrevious && fragPrevious.start < fragments[0].start) {
+          foundFrag = fragments[0];
         }
       } else {
         foundFrag = fragments[fragLen - 1];
@@ -10430,7 +11024,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _types_loader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../types/loader */ "./src/types/loader.ts");
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; _setPrototypeOf(subClass, superClass); }
 
@@ -10901,6 +11495,7 @@ var TimelineController = /*#__PURE__*/function () {
     this.cea608Parser1 = void 0;
     this.cea608Parser2 = void 0;
     this.lastSn = -1;
+    this.lastPartIndex = -1;
     this.prevCC = -1;
     this.vttCCs = newVTTCCs();
     this.captionsProperties = void 0;
@@ -11137,6 +11732,7 @@ var TimelineController = /*#__PURE__*/function () {
   _proto.onManifestLoading = function onManifestLoading() {
     this.lastSn = -1; // Detect discontinuity in fragment parsing
 
+    this.lastPartIndex = -1;
     this.prevCC = -1;
     this.vttCCs = newVTTCCs(); // Detect discontinuity in subtitle manifests
 
@@ -11273,7 +11869,8 @@ var TimelineController = /*#__PURE__*/function () {
   _proto.onFragLoading = function onFragLoading(event, data) {
     var cea608Parser1 = this.cea608Parser1,
         cea608Parser2 = this.cea608Parser2,
-        lastSn = this.lastSn;
+        lastSn = this.lastSn,
+        lastPartIndex = this.lastPartIndex;
 
     if (!this.enabled || !(cea608Parser1 && cea608Parser2)) {
       return;
@@ -11281,14 +11878,18 @@ var TimelineController = /*#__PURE__*/function () {
 
 
     if (data.frag.type === _types_loader__WEBPACK_IMPORTED_MODULE_7__["PlaylistLevelType"].MAIN) {
-      var sn = data.frag.sn;
+      var _data$part$index, _data$part;
 
-      if (sn !== lastSn + 1) {
+      var sn = data.frag.sn;
+      var partIndex = (_data$part$index = data === null || data === void 0 ? void 0 : (_data$part = data.part) === null || _data$part === void 0 ? void 0 : _data$part.index) != null ? _data$part$index : -1;
+
+      if (!(sn === lastSn + 1 || sn === lastSn && partIndex === lastPartIndex + 1)) {
         cea608Parser1.reset();
         cea608Parser2.reset();
       }
 
       this.lastSn = sn;
+      this.lastPartIndex = partIndex;
     }
   };
 
@@ -12159,7 +12760,7 @@ var AACDemuxer = /*#__PURE__*/function (_BaseAudioDemuxer) {
     this._audioTrack = {
       container: 'audio/adts',
       type: 'audio',
-      id: 0,
+      id: 2,
       pid: -1,
       sequenceNumber: 0,
       isAAC: true,
@@ -12530,7 +13131,7 @@ var BaseAudioDemuxer = /*#__PURE__*/function () {
   _proto.resetInitSegment = function resetInitSegment(audioCodec, videoCodec, duration) {
     this._id3Track = {
       type: 'id3',
-      id: 0,
+      id: 3,
       pid: -1,
       inputTimeScale: 90000,
       sequenceNumber: 0,
@@ -13619,7 +14220,7 @@ var MP3Demuxer = /*#__PURE__*/function (_BaseAudioDemuxer) {
     this._audioTrack = {
       container: 'audio/mpeg',
       type: 'audio',
-      id: 0,
+      id: 2,
       pid: -1,
       sequenceNumber: 0,
       isAAC: false,
@@ -13682,13 +14283,17 @@ MP3Demuxer.minProbeByteLength = 4;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _utils_mp4_tools__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/mp4-tools */ "./src/utils/mp4-tools.ts");
-/* harmony import */ var _dummy_demuxed_track__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dummy-demuxed-track */ "./src/demux/dummy-demuxed-track.ts");
+/* harmony import */ var _Users_albert_daurell_Rakuten_git_albertdaurell_hls_js_src_polyfills_number__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/polyfills/number */ "./src/polyfills/number.ts");
+/* harmony import */ var _utils_mp4_tools__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/mp4-tools */ "./src/utils/mp4-tools.ts");
+/* harmony import */ var _dummy_demuxed_track__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dummy-demuxed-track */ "./src/demux/dummy-demuxed-track.ts");
+
+
 /**
  * MP4 demuxer
  */
 
 
+var emsgSchemePattern = /\/emsg[-/]ID3/i;
 
 var MP4Demuxer = /*#__PURE__*/function () {
   function MP4Demuxer(observer, config) {
@@ -13707,50 +14312,74 @@ var MP4Demuxer = /*#__PURE__*/function () {
 
   MP4Demuxer.probe = function probe(data) {
     // ensure we find a moof box in the first 16 kB
-    return Object(_utils_mp4_tools__WEBPACK_IMPORTED_MODULE_0__["findBox"])({
+    return Object(_utils_mp4_tools__WEBPACK_IMPORTED_MODULE_1__["findBox"])({
       data: data,
       start: 0,
       end: Math.min(data.length, 16384)
     }, ['moof']).length > 0;
   };
 
-  _proto.demux = function demux(data) {
+  _proto.demux = function demux(data, timeOffset) {
     // Load all data into the avc track. The CMAF remuxer will look for the data in the samples object; the rest of the fields do not matter
     var avcSamples = data;
-    var avcTrack = Object(_dummy_demuxed_track__WEBPACK_IMPORTED_MODULE_1__["dummyTrack"])();
+    var avcTrack = Object(_dummy_demuxed_track__WEBPACK_IMPORTED_MODULE_2__["dummyTrack"])();
 
     if (this.config.progressive) {
       // Split the bytestream into two ranges: one encompassing all data up until the start of the last moof, and everything else.
       // This is done to guarantee that we're sending valid data to MSE - when demuxing progressively, we have no guarantee
       // that the fetch loader gives us flush moof+mdat pairs. If we push jagged data to MSE, it will throw an exception.
       if (this.remainderData) {
-        avcSamples = Object(_utils_mp4_tools__WEBPACK_IMPORTED_MODULE_0__["appendUint8Array"])(this.remainderData, data);
+        avcSamples = Object(_utils_mp4_tools__WEBPACK_IMPORTED_MODULE_1__["appendUint8Array"])(this.remainderData, data);
       }
 
-      var segmentedData = Object(_utils_mp4_tools__WEBPACK_IMPORTED_MODULE_0__["segmentValidRange"])(avcSamples);
+      var segmentedData = Object(_utils_mp4_tools__WEBPACK_IMPORTED_MODULE_1__["segmentValidRange"])(avcSamples);
       this.remainderData = segmentedData.remainder;
       avcTrack.samples = segmentedData.valid || new Uint8Array();
     } else {
       avcTrack.samples = avcSamples;
     }
 
+    var id3Track = Object(_dummy_demuxed_track__WEBPACK_IMPORTED_MODULE_2__["dummyTrack"])();
+    var emsgs = Object(_utils_mp4_tools__WEBPACK_IMPORTED_MODULE_1__["findBox"])(avcTrack.samples, ['emsg']);
+
+    if (emsgs) {
+      id3Track.inputTimeScale = 1;
+      emsgs.forEach(function (_ref) {
+        var data = _ref.data,
+            start = _ref.start,
+            end = _ref.end;
+        var emsgInfo = Object(_utils_mp4_tools__WEBPACK_IMPORTED_MODULE_1__["parseEmsg"])(data.subarray(start, end));
+
+        if (emsgSchemePattern.test(emsgInfo.schemeIdUri)) {
+          var pts = Object(_Users_albert_daurell_Rakuten_git_albertdaurell_hls_js_src_polyfills_number__WEBPACK_IMPORTED_MODULE_0__["isFiniteNumber"])(emsgInfo.presentationTime) ? emsgInfo.presentationTime / emsgInfo.timeScale : timeOffset + emsgInfo.presentationTimeDelta / emsgInfo.timeScale;
+          var payload = emsgInfo.payload;
+          id3Track.samples.push({
+            data: payload,
+            len: payload.byteLength,
+            dts: pts,
+            pts: pts
+          });
+        }
+      });
+    }
+
     return {
-      audioTrack: Object(_dummy_demuxed_track__WEBPACK_IMPORTED_MODULE_1__["dummyTrack"])(),
+      audioTrack: Object(_dummy_demuxed_track__WEBPACK_IMPORTED_MODULE_2__["dummyTrack"])(),
       avcTrack: avcTrack,
-      id3Track: Object(_dummy_demuxed_track__WEBPACK_IMPORTED_MODULE_1__["dummyTrack"])(),
-      textTrack: Object(_dummy_demuxed_track__WEBPACK_IMPORTED_MODULE_1__["dummyTrack"])()
+      id3Track: id3Track,
+      textTrack: Object(_dummy_demuxed_track__WEBPACK_IMPORTED_MODULE_2__["dummyTrack"])()
     };
   };
 
   _proto.flush = function flush() {
-    var avcTrack = Object(_dummy_demuxed_track__WEBPACK_IMPORTED_MODULE_1__["dummyTrack"])();
+    var avcTrack = Object(_dummy_demuxed_track__WEBPACK_IMPORTED_MODULE_2__["dummyTrack"])();
     avcTrack.samples = this.remainderData || new Uint8Array();
     this.remainderData = null;
     return {
-      audioTrack: Object(_dummy_demuxed_track__WEBPACK_IMPORTED_MODULE_1__["dummyTrack"])(),
+      audioTrack: Object(_dummy_demuxed_track__WEBPACK_IMPORTED_MODULE_2__["dummyTrack"])(),
       avcTrack: avcTrack,
-      id3Track: Object(_dummy_demuxed_track__WEBPACK_IMPORTED_MODULE_1__["dummyTrack"])(),
-      textTrack: Object(_dummy_demuxed_track__WEBPACK_IMPORTED_MODULE_1__["dummyTrack"])()
+      id3Track: Object(_dummy_demuxed_track__WEBPACK_IMPORTED_MODULE_2__["dummyTrack"])(),
+      textTrack: Object(_dummy_demuxed_track__WEBPACK_IMPORTED_MODULE_2__["dummyTrack"])()
     };
   };
 
@@ -13955,6 +14584,13 @@ var SampleAesDecrypter = /*#__PURE__*/function () {
 
   _proto.decryptAacSample = function decryptAacSample(samples, sampleIndex, callback, sync) {
     var curUnit = samples[sampleIndex].unit;
+
+    if (curUnit.length <= 16) {
+      // No encrypted portion in this sample (first 16 bytes is not
+      // encrypted, see https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/HLS_Sample_Encryption/Encryption/Encryption.html),
+      return;
+    }
+
     var encryptedData = curUnit.subarray(16, curUnit.length - curUnit.length % 16);
     var encryptedBuffer = encryptedData.buffer.slice(encryptedData.byteOffset, encryptedData.byteOffset + encryptedData.length);
     var localthis = this;
@@ -13994,7 +14630,7 @@ var SampleAesDecrypter = /*#__PURE__*/function () {
     var encryptedData = new Int8Array(encryptedDataLen);
     var outputPos = 0;
 
-    for (var inputPos = 32; inputPos <= decodedData.length - 16; inputPos += 160, outputPos += 16) {
+    for (var inputPos = 32; inputPos < decodedData.length - 16; inputPos += 160, outputPos += 16) {
       encryptedData.set(decodedData.subarray(inputPos, inputPos + 16), outputPos);
     }
 
@@ -14005,7 +14641,7 @@ var SampleAesDecrypter = /*#__PURE__*/function () {
     var uint8DecryptedData = new Uint8Array(decryptedData);
     var inputPos = 0;
 
-    for (var outputPos = 32; outputPos <= decodedData.length - 16; outputPos += 160, inputPos += 16) {
+    for (var outputPos = 32; outputPos < decodedData.length - 16; outputPos += 160, inputPos += 16) {
       decodedData.set(uint8DecryptedData.subarray(inputPos, inputPos + 16), outputPos);
     }
 
@@ -14210,7 +14846,9 @@ var TransmuxerInterface = /*#__PURE__*/function () {
   };
 
   _proto.push = function push(data, initSegmentData, audioCodec, videoCodec, frag, part, duration, accurateTimeOffset, chunkMeta, defaultInitPTS) {
-    var _this2 = this;
+    var _frag$initSegment,
+        _lastFrag$initSegment,
+        _this2 = this;
 
     chunkMeta.transmuxing.start = self.performance.now();
     var transmuxer = this.transmuxer,
@@ -14233,10 +14871,11 @@ var TransmuxerInterface = /*#__PURE__*/function () {
       part.stats.parsing.start = now;
     }
 
-    var state = new _demux_transmuxer__WEBPACK_IMPORTED_MODULE_2__["TransmuxState"](discontinuity, contiguous, accurateTimeOffset, trackSwitch, timeOffset);
+    var initSegmentChange = !(lastFrag && ((_frag$initSegment = frag.initSegment) === null || _frag$initSegment === void 0 ? void 0 : _frag$initSegment.url) === ((_lastFrag$initSegment = lastFrag.initSegment) === null || _lastFrag$initSegment === void 0 ? void 0 : _lastFrag$initSegment.url));
+    var state = new _demux_transmuxer__WEBPACK_IMPORTED_MODULE_2__["TransmuxState"](discontinuity, contiguous, accurateTimeOffset, trackSwitch, timeOffset, initSegmentChange);
 
-    if (!contiguous || discontinuity) {
-      _utils_logger__WEBPACK_IMPORTED_MODULE_3__["logger"].log("[transmuxer-interface, " + frag.type + "]: Starting new transmux session for sn: " + chunkMeta.sn + " p: " + chunkMeta.part + " level: " + chunkMeta.level + " id: " + chunkMeta.id + "\n        discontinuity: " + discontinuity + "\n        trackSwitch: " + trackSwitch + "\n        contiguous: " + contiguous + "\n        accurateTimeOffset: " + accurateTimeOffset + "\n        timeOffset: " + timeOffset);
+    if (!contiguous || discontinuity || initSegmentChange) {
+      _utils_logger__WEBPACK_IMPORTED_MODULE_3__["logger"].log("[transmuxer-interface, " + frag.type + "]: Starting new transmux session for sn: " + chunkMeta.sn + " p: " + chunkMeta.part + " level: " + chunkMeta.level + " id: " + chunkMeta.id + "\n        discontinuity: " + discontinuity + "\n        trackSwitch: " + trackSwitch + "\n        contiguous: " + contiguous + "\n        accurateTimeOffset: " + accurateTimeOffset + "\n        timeOffset: " + timeOffset + "\n        initSegmentChange: " + initSegmentChange);
       var config = new _demux_transmuxer__WEBPACK_IMPORTED_MODULE_2__["TransmuxConfig"](audioCodec, videoCodec, initSegmentData, duration, defaultInitPTS);
       this.configureTransmuxer(config);
     }
@@ -14650,7 +15289,8 @@ var Transmuxer = /*#__PURE__*/function () {
         discontinuity = _ref2.discontinuity,
         trackSwitch = _ref2.trackSwitch,
         accurateTimeOffset = _ref2.accurateTimeOffset,
-        timeOffset = _ref2.timeOffset;
+        timeOffset = _ref2.timeOffset,
+        initSegmentChange = _ref2.initSegmentChange;
 
     var audioCodec = transmuxConfig.audioCodec,
         videoCodec = transmuxConfig.videoCodec,
@@ -14658,11 +15298,11 @@ var Transmuxer = /*#__PURE__*/function () {
         duration = transmuxConfig.duration,
         initSegmentData = transmuxConfig.initSegmentData; // Reset muxers before probing to ensure that their state is clean, even if flushing occurs before a successful probe
 
-    if (discontinuity || trackSwitch) {
+    if (discontinuity || trackSwitch || initSegmentChange) {
       this.resetInitSegment(initSegmentData, audioCodec, videoCodec, duration);
     }
 
-    if (discontinuity) {
+    if (discontinuity || initSegmentChange) {
       this.resetInitialTimestamp(defaultInitPts);
     }
 
@@ -14963,17 +15603,19 @@ var TransmuxConfig = function TransmuxConfig(audioCodec, videoCodec, initSegment
   this.duration = duration;
   this.defaultInitPts = defaultInitPts;
 };
-var TransmuxState = function TransmuxState(discontinuity, contiguous, accurateTimeOffset, trackSwitch, timeOffset) {
+var TransmuxState = function TransmuxState(discontinuity, contiguous, accurateTimeOffset, trackSwitch, timeOffset, initSegmentChange) {
   this.discontinuity = void 0;
   this.contiguous = void 0;
   this.accurateTimeOffset = void 0;
   this.trackSwitch = void 0;
   this.timeOffset = void 0;
+  this.initSegmentChange = void 0;
   this.discontinuity = discontinuity;
   this.contiguous = contiguous;
   this.accurateTimeOffset = accurateTimeOffset;
   this.trackSwitch = trackSwitch;
   this.timeOffset = timeOffset;
+  this.initSegmentChange = initSegmentChange;
 };
 
 /***/ }),
@@ -15209,6 +15851,8 @@ var TSDemuxer = /*#__PURE__*/function () {
     } // loop through TS packets
 
 
+    var tsPacketErrors = 0;
+
     for (var start = syncOffset; start < len; start += 188) {
       if (data[start] === 0x47) {
         var stt = !!(data[start + 1] & 0x40); // pid is a 13-bit field starting at the last bit of TS[1]
@@ -15350,13 +15994,17 @@ var TSDemuxer = /*#__PURE__*/function () {
             break;
         }
       } else {
-        this.observer.emit(_events__WEBPACK_IMPORTED_MODULE_5__["Events"].ERROR, _events__WEBPACK_IMPORTED_MODULE_5__["Events"].ERROR, {
-          type: _errors__WEBPACK_IMPORTED_MODULE_8__["ErrorTypes"].MEDIA_ERROR,
-          details: _errors__WEBPACK_IMPORTED_MODULE_8__["ErrorDetails"].FRAG_PARSING_ERROR,
-          fatal: false,
-          reason: 'TS packet did not start with 0x47'
-        });
+        tsPacketErrors++;
       }
+    }
+
+    if (tsPacketErrors > 0) {
+      this.observer.emit(_events__WEBPACK_IMPORTED_MODULE_5__["Events"].ERROR, _events__WEBPACK_IMPORTED_MODULE_5__["Events"].ERROR, {
+        type: _errors__WEBPACK_IMPORTED_MODULE_8__["ErrorTypes"].MEDIA_ERROR,
+        details: _errors__WEBPACK_IMPORTED_MODULE_8__["ErrorDetails"].FRAG_PARSING_ERROR,
+        fatal: false,
+        reason: "Found " + tsPacketErrors + " TS packet/s that do not start with 0x47"
+      });
     }
 
     avcTrack.pesData = avcData;
@@ -15839,6 +16487,7 @@ var TSDemuxer = /*#__PURE__*/function () {
               tmp.set(lastUnit.data, 0);
               tmp.set(array.subarray(0, overflow), lastUnit.data.byteLength);
               lastUnit.data = tmp;
+              lastUnit.state = 0;
             }
           }
         } // check if we can read unit type
@@ -16515,7 +17164,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _errors__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./errors */ "./src/errors.ts");
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 
 
@@ -16568,6 +17217,7 @@ var Hls = /*#__PURE__*/function () {
     this.audioTrackController = void 0;
     this.subtitleTrackController = void 0;
     this.emeController = void 0;
+    this.cmcdController = void 0;
     this._media = null;
     this.url = null;
     var config = this.config = Object(_config__WEBPACK_IMPORTED_MODULE_10__["mergeConfig"])(Hls.DefaultConfig, userConfig);
@@ -16610,6 +17260,7 @@ var Hls = /*#__PURE__*/function () {
     this.createController(config.subtitleStreamController, fragmentTracker, networkControllers);
     this.createController(config.timelineController, null, coreComponents);
     this.emeController = this.createController(config.emeController, null, coreComponents);
+    this.cmcdController = this.createController(config.cmcdController, null, coreComponents);
     this.latencyController = this.createController(_controller_latency_controller__WEBPACK_IMPORTED_MODULE_4__["default"], null, coreComponents);
     this.coreComponents = coreComponents;
   }
@@ -17115,7 +17766,7 @@ var Hls = /*#__PURE__*/function () {
      * this setter is used to force next auto level.
      * this is useful to force a switch down in auto mode:
      * in case of load error on level N, hls.js can set nextAutoLevel to N-1 for example)
-     * forced value is valid for one fragment. upon succesful frag loading at forced level,
+     * forced value is valid for one fragment. upon successful frag loading at forced level,
      * this value will be resetted to -1 by ABR controller.
      * @type {number}
      */
@@ -17301,7 +17952,7 @@ var Hls = /*#__PURE__*/function () {
   }], [{
     key: "version",
     get: function get() {
-      return "1.2.0-adf";
+      return "1.2.0-2Feb-adf";
     }
   }, {
     key: "Events",
@@ -17674,6 +18325,7 @@ function createLoaderContext(frag, part) {
     part: part,
     responseType: 'arraybuffer',
     url: segment.url,
+    headers: {},
     rangeStart: 0,
     rangeEnd: 0
   };
@@ -17737,7 +18389,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 
 
@@ -18265,7 +18917,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 var DEFAULT_TARGET_DURATION = 10;
 var LevelDetails = /*#__PURE__*/function () {
@@ -18444,7 +19096,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var url_toolkit__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(url_toolkit__WEBPACK_IMPORTED_MODULE_0__);
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 
 var LevelKey = /*#__PURE__*/function () {
@@ -18729,6 +19381,7 @@ var M3U8Parser = /*#__PURE__*/function () {
         if (currentInitSegment) {
           frag.initSegment = currentInitSegment;
           frag.rawProgramDateTime = currentInitSegment.rawProgramDateTime;
+          currentInitSegment.rawProgramDateTime = null;
         }
       }
 
@@ -20386,13 +21039,15 @@ MP4.DINF = void 0;
 /*!**********************************!*\
   !*** ./src/remux/mp4-remuxer.ts ***!
   \**********************************/
-/*! exports provided: default, normalizePts */
+/*! exports provided: default, normalizePts, flushTextTrackMetadataCueSamples, flushTextTrackUserdataCueSamples */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MP4Remuxer; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "normalizePts", function() { return normalizePts; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "flushTextTrackMetadataCueSamples", function() { return flushTextTrackMetadataCueSamples; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "flushTextTrackUserdataCueSamples", function() { return flushTextTrackUserdataCueSamples; });
 /* harmony import */ var _Users_albert_daurell_Rakuten_git_albertdaurell_hls_js_src_polyfills_number__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/polyfills/number */ "./src/polyfills/number.ts");
 /* harmony import */ var _aac_helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./aac-helper */ "./src/remux/aac-helper.ts");
 /* harmony import */ var _mp4_generator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mp4-generator */ "./src/remux/mp4-generator.ts");
@@ -20596,11 +21251,11 @@ var MP4Remuxer = /*#__PURE__*/function () {
 
     if (this.ISGenerated) {
       if (id3Track.samples.length) {
-        id3 = this.remuxID3(id3Track, timeOffset);
+        id3 = flushTextTrackMetadataCueSamples(id3Track, timeOffset, this._initPTS, this._initDTS);
       }
 
       if (textTrack.samples.length) {
-        text = this.remuxText(textTrack, timeOffset);
+        text = flushTextTrackUserdataCueSamples(textTrack, timeOffset, this._initPTS);
       }
     }
 
@@ -21209,59 +21864,6 @@ var MP4Remuxer = /*#__PURE__*/function () {
     return this.remuxAudio(track, timeOffset, contiguous, false);
   };
 
-  _proto.remuxID3 = function remuxID3(track, timeOffset) {
-    var length = track.samples.length;
-
-    if (!length) {
-      return;
-    }
-
-    var inputTimeScale = track.inputTimeScale;
-    var initPTS = this._initPTS;
-    var initDTS = this._initDTS;
-
-    for (var index = 0; index < length; index++) {
-      var sample = track.samples[index]; // setting id3 pts, dts to relative time
-      // using this._initPTS and this._initDTS to calculate relative time
-
-      sample.pts = normalizePts(sample.pts - initPTS, timeOffset * inputTimeScale) / inputTimeScale;
-      sample.dts = normalizePts(sample.dts - initDTS, timeOffset * inputTimeScale) / inputTimeScale;
-    }
-
-    var samples = track.samples;
-    track.samples = [];
-    return {
-      samples: samples
-    };
-  };
-
-  _proto.remuxText = function remuxText(track, timeOffset) {
-    var length = track.samples.length;
-
-    if (!length) {
-      return;
-    }
-
-    var inputTimeScale = track.inputTimeScale;
-    var initPTS = this._initPTS;
-
-    for (var index = 0; index < length; index++) {
-      var sample = track.samples[index]; // setting text pts, dts to relative time
-      // using this._initPTS and this._initDTS to calculate relative time
-
-      sample.pts = normalizePts(sample.pts - initPTS, timeOffset * inputTimeScale) / inputTimeScale;
-    }
-
-    track.samples.sort(function (a, b) {
-      return a.pts - b.pts;
-    });
-    var samples = track.samples;
-    track.samples = [];
-    return {
-      samples: samples
-    };
-  };
-
   return MP4Remuxer;
 }();
 
@@ -21302,6 +21904,55 @@ function findKeyframeIndex(samples) {
   return -1;
 }
 
+function flushTextTrackMetadataCueSamples(track, timeOffset, initPTS, initDTS) {
+  var length = track.samples.length;
+
+  if (!length) {
+    return;
+  }
+
+  var inputTimeScale = track.inputTimeScale;
+
+  for (var index = 0; index < length; index++) {
+    var sample = track.samples[index]; // setting id3 pts, dts to relative time
+    // using this._initPTS and this._initDTS to calculate relative time
+
+    sample.pts = normalizePts(sample.pts - initPTS, timeOffset * inputTimeScale) / inputTimeScale;
+    sample.dts = normalizePts(sample.dts - initDTS, timeOffset * inputTimeScale) / inputTimeScale;
+  }
+
+  var samples = track.samples;
+  track.samples = [];
+  return {
+    samples: samples
+  };
+}
+function flushTextTrackUserdataCueSamples(track, timeOffset, initPTS) {
+  var length = track.samples.length;
+
+  if (!length) {
+    return;
+  }
+
+  var inputTimeScale = track.inputTimeScale;
+
+  for (var index = 0; index < length; index++) {
+    var sample = track.samples[index]; // setting text pts, dts to relative time
+    // using this._initPTS and this._initDTS to calculate relative time
+
+    sample.pts = normalizePts(sample.pts - initPTS, timeOffset * inputTimeScale) / inputTimeScale;
+  }
+
+  track.samples.sort(function (a, b) {
+    return a.pts - b.pts;
+  });
+  var samples = track.samples;
+  track.samples = [];
+  return {
+    samples: samples
+  };
+}
+
 var Mp4Sample = function Mp4Sample(isKeyframe, duration, size, cts) {
   this.size = void 0;
   this.duration = void 0;
@@ -21336,9 +21987,11 @@ var Mp4SampleFlags = function Mp4SampleFlags(isKeyframe) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Users_albert_daurell_Rakuten_git_albertdaurell_hls_js_src_polyfills_number__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/polyfills/number */ "./src/polyfills/number.ts");
-/* harmony import */ var _utils_mp4_tools__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/mp4-tools */ "./src/utils/mp4-tools.ts");
-/* harmony import */ var _loader_fragment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../loader/fragment */ "./src/loader/fragment.ts");
-/* harmony import */ var _utils_logger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/logger */ "./src/utils/logger.ts");
+/* harmony import */ var _mp4_remuxer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mp4-remuxer */ "./src/remux/mp4-remuxer.ts");
+/* harmony import */ var _utils_mp4_tools__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/mp4-tools */ "./src/utils/mp4-tools.ts");
+/* harmony import */ var _loader_fragment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../loader/fragment */ "./src/loader/fragment.ts");
+/* harmony import */ var _utils_logger__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/logger */ "./src/utils/logger.ts");
+
 
 
 
@@ -21386,14 +22039,14 @@ var PassThroughRemuxer = /*#__PURE__*/function () {
       return;
     }
 
-    var initData = this.initData = Object(_utils_mp4_tools__WEBPACK_IMPORTED_MODULE_1__["parseInitSegment"])(initSegment); // Get codec from initSegment or fallback to default
+    var initData = this.initData = Object(_utils_mp4_tools__WEBPACK_IMPORTED_MODULE_2__["parseInitSegment"])(initSegment); // Get codec from initSegment or fallback to default
 
     if (!audioCodec) {
-      audioCodec = getParsedTrackCodec(initData.audio, _loader_fragment__WEBPACK_IMPORTED_MODULE_2__["ElementaryStreamTypes"].AUDIO);
+      audioCodec = getParsedTrackCodec(initData.audio, _loader_fragment__WEBPACK_IMPORTED_MODULE_3__["ElementaryStreamTypes"].AUDIO);
     }
 
     if (!videoCodec) {
-      videoCodec = getParsedTrackCodec(initData.video, _loader_fragment__WEBPACK_IMPORTED_MODULE_2__["ElementaryStreamTypes"].VIDEO);
+      videoCodec = getParsedTrackCodec(initData.video, _loader_fragment__WEBPACK_IMPORTED_MODULE_3__["ElementaryStreamTypes"].VIDEO);
     }
 
     var tracks = {};
@@ -21420,13 +22073,15 @@ var PassThroughRemuxer = /*#__PURE__*/function () {
         id: 'main'
       };
     } else {
-      _utils_logger__WEBPACK_IMPORTED_MODULE_3__["logger"].warn('[passthrough-remuxer.ts]: initSegment does not contain moov or trak boxes.');
+      _utils_logger__WEBPACK_IMPORTED_MODULE_4__["logger"].warn('[passthrough-remuxer.ts]: initSegment does not contain moov or trak boxes.');
     }
 
     this.initTracks = tracks;
   };
 
   _proto.remux = function remux(audioTrack, videoTrack, id3Track, textTrack, timeOffset) {
+    var _this$initPTS;
+
     var initPTS = this.initPTS,
         lastEndDTS = this.lastEndDTS;
     var result = {
@@ -21464,7 +22119,7 @@ var PassThroughRemuxer = /*#__PURE__*/function () {
 
     if (!initData || !initData.length) {
       // We can't remux if the initSegment could not be generated
-      _utils_logger__WEBPACK_IMPORTED_MODULE_3__["logger"].warn('[passthrough-remuxer.ts]: Failed to generate initSegment.');
+      _utils_logger__WEBPACK_IMPORTED_MODULE_4__["logger"].warn('[passthrough-remuxer.ts]: Failed to generate initSegment.');
       return result;
     }
 
@@ -21477,15 +22132,15 @@ var PassThroughRemuxer = /*#__PURE__*/function () {
       this.initPTS = initSegment.initPTS = initPTS = computeInitPTS(initData, data, lastEndDTS);
     }
 
-    var duration = Object(_utils_mp4_tools__WEBPACK_IMPORTED_MODULE_1__["getDuration"])(data, initData);
+    var duration = Object(_utils_mp4_tools__WEBPACK_IMPORTED_MODULE_2__["getDuration"])(data, initData);
     var startDTS = lastEndDTS;
     var endDTS = duration + startDTS;
-    Object(_utils_mp4_tools__WEBPACK_IMPORTED_MODULE_1__["offsetStartDTS"])(initData, data, initPTS);
+    Object(_utils_mp4_tools__WEBPACK_IMPORTED_MODULE_2__["offsetStartDTS"])(initData, data, initPTS);
 
     if (duration > 0) {
       this.lastEndDTS = endDTS;
     } else {
-      _utils_logger__WEBPACK_IMPORTED_MODULE_3__["logger"].warn('Duration parsed from mp4 should be greater than zero');
+      _utils_logger__WEBPACK_IMPORTED_MODULE_4__["logger"].warn('Duration parsed from mp4 should be greater than zero');
       this.resetNextTimestamp();
     }
 
@@ -21515,9 +22170,9 @@ var PassThroughRemuxer = /*#__PURE__*/function () {
     };
     result.audio = track.type === 'audio' ? track : undefined;
     result.video = track.type !== 'audio' ? track : undefined;
-    result.text = textTrack;
-    result.id3 = id3Track;
     result.initSegment = initSegment;
+    var id3InitPts = (_this$initPTS = this.initPTS) != null ? _this$initPTS : 0;
+    result.id3 = Object(_mp4_remuxer__WEBPACK_IMPORTED_MODULE_1__["flushTextTrackMetadataCueSamples"])(id3Track, timeOffset, id3InitPts, id3InitPts);
     return result;
   };
 
@@ -21525,7 +22180,7 @@ var PassThroughRemuxer = /*#__PURE__*/function () {
 }();
 
 var computeInitPTS = function computeInitPTS(initData, data, timeOffset) {
-  return Object(_utils_mp4_tools__WEBPACK_IMPORTED_MODULE_1__["getStartDTS"])(initData, data) - timeOffset;
+  return Object(_utils_mp4_tools__WEBPACK_IMPORTED_MODULE_2__["getStartDTS"])(initData, data) - timeOffset;
 };
 
 function getParsedTrackCodec(track, type) {
@@ -21546,7 +22201,7 @@ function getParsedTrackCodec(track, type) {
     return 'av01.0.04M.08';
   }
 
-  if (parsedCodec === 'avc1' || type === _loader_fragment__WEBPACK_IMPORTED_MODULE_2__["ElementaryStreamTypes"].VIDEO) {
+  if (parsedCodec === 'avc1' || type === _loader_fragment__WEBPACK_IMPORTED_MODULE_3__["ElementaryStreamTypes"].VIDEO) {
     return 'avc1.42e01e';
   }
 
@@ -21718,6 +22373,68 @@ var TaskLoop = /*#__PURE__*/function () {
 
 /***/ }),
 
+/***/ "./src/types/cmcd.ts":
+/*!***************************!*\
+  !*** ./src/types/cmcd.ts ***!
+  \***************************/
+/*! exports provided: CMCDVersion, CMCDObjectType, CMCDStreamingFormat, CMCDStreamType */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CMCDVersion", function() { return CMCDVersion; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CMCDObjectType", function() { return CMCDObjectType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CMCDStreamingFormat", function() { return CMCDStreamingFormat; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CMCDStreamType", function() { return CMCDStreamType; });
+/**
+ * CMCD spec version
+ */
+var CMCDVersion = 1;
+/**
+ * CMCD Object Type
+ */
+
+var CMCDObjectType;
+/**
+ * CMCD Streaming Format
+ */
+
+(function (CMCDObjectType) {
+  CMCDObjectType["MANIFEST"] = "m";
+  CMCDObjectType["AUDIO"] = "a";
+  CMCDObjectType["VIDEO"] = "v";
+  CMCDObjectType["MUXED"] = "av";
+  CMCDObjectType["INIT"] = "i";
+  CMCDObjectType["CAPTION"] = "c";
+  CMCDObjectType["TIMED_TEXT"] = "tt";
+  CMCDObjectType["KEY"] = "k";
+  CMCDObjectType["OTHER"] = "o";
+})(CMCDObjectType || (CMCDObjectType = {}));
+
+var CMCDStreamingFormat;
+/**
+ * CMCD Streaming Type
+ */
+
+(function (CMCDStreamingFormat) {
+  CMCDStreamingFormat["DASH"] = "d";
+  CMCDStreamingFormat["HLS"] = "h";
+  CMCDStreamingFormat["SMOOTH"] = "s";
+  CMCDStreamingFormat["OTHER"] = "o";
+})(CMCDStreamingFormat || (CMCDStreamingFormat = {}));
+
+var CMCDStreamType;
+/**
+ * CMCD Headers
+ */
+
+(function (CMCDStreamType) {
+  CMCDStreamType["VOD"] = "v";
+  CMCDStreamType["LIVE"] = "l";
+})(CMCDStreamType || (CMCDStreamType = {}));
+
+/***/ }),
+
 /***/ "./src/types/level.ts":
 /*!****************************!*\
   !*** ./src/types/level.ts ***!
@@ -21733,7 +22450,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Level", function() { return Level; });
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 var HlsSkip;
 
@@ -24386,6 +25103,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 
 
 function fetchSupported() {
@@ -24590,13 +25309,12 @@ function getRequestParameters(context, signal) {
     method: 'GET',
     mode: 'cors',
     credentials: 'same-origin',
-    signal: signal
+    signal: signal,
+    headers: new self.Headers(_extends({}, context.headers))
   };
 
   if (context.rangeEnd) {
-    initParams.headers = new self.Headers({
-      Range: 'bytes=' + context.rangeStart + '-' + String(context.rangeEnd - 1)
-    });
+    initParams.headers.set('Range', 'bytes=' + context.rangeStart + '-' + String(context.rangeEnd - 1));
   }
 
   return initParams;
@@ -25006,7 +25724,7 @@ function getMediaSource() {
 /*!********************************!*\
   !*** ./src/utils/mp4-tools.ts ***!
   \********************************/
-/*! exports provided: bin2str, readUint16, readUint32, writeUint32, findBox, parseSegmentIndex, parseInitSegment, getStartDTS, getDuration, computeRawDurationFromSamples, offsetStartDTS, segmentValidRange, appendUint8Array */
+/*! exports provided: bin2str, readUint16, readUint32, writeUint32, findBox, parseSegmentIndex, parseInitSegment, getStartDTS, getDuration, computeRawDurationFromSamples, offsetStartDTS, segmentValidRange, appendUint8Array, parseEmsg */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -25024,6 +25742,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "offsetStartDTS", function() { return offsetStartDTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "segmentValidRange", function() { return segmentValidRange; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appendUint8Array", function() { return appendUint8Array; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parseEmsg", function() { return parseEmsg; });
 /* harmony import */ var _typed_array__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./typed-array */ "./src/utils/typed-array.ts");
 /* harmony import */ var _loader_fragment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../loader/fragment */ "./src/loader/fragment.ts");
 
@@ -25400,11 +26119,11 @@ function getDuration(data, initData) {
     var truns = findBox(traf, ['trun']);
 
     for (var j = 0; j < truns.length; j++) {
-      if (sampleDuration) {
+      rawDuration = computeRawDurationFromSamples(truns[j]);
+
+      if (!rawDuration && sampleDuration) {
         var sampleCount = readUint32(truns[j], 4);
         rawDuration = sampleDuration * sampleCount;
-      } else {
-        rawDuration = computeRawDurationFromSamples(truns[j]);
       }
 
       if (track.type === _loader_fragment__WEBPACK_IMPORTED_MODULE_1__["ElementaryStreamTypes"].VIDEO) {
@@ -25558,6 +26277,88 @@ function appendUint8Array(data1, data2) {
   temp.set(data2, data1.length);
   return temp;
 }
+function parseEmsg(data) {
+  var version = data[0];
+  var schemeIdUri = '';
+  var value = '';
+  var timeScale = 0;
+  var presentationTimeDelta = 0;
+  var presentationTime = 0;
+  var eventDuration = 0;
+  var id = 0;
+  var offset = 0;
+
+  if (version === 0) {
+    while (bin2str(data.subarray(offset, offset + 1)) !== '\0') {
+      schemeIdUri += bin2str(data.subarray(offset, offset + 1));
+      offset += 1;
+    }
+
+    schemeIdUri += bin2str(data.subarray(offset, offset + 1));
+    offset += 1;
+
+    while (bin2str(data.subarray(offset, offset + 1)) !== '\0') {
+      value += bin2str(data.subarray(offset, offset + 1));
+      offset += 1;
+    }
+
+    value += bin2str(data.subarray(offset, offset + 1));
+    offset += 1;
+    timeScale = readUint32(data, 12);
+    presentationTimeDelta = readUint32(data, 16);
+    eventDuration = readUint32(data, 20);
+    id = readUint32(data, 24);
+    offset = 28;
+  } else if (version === 1) {
+    offset += 4;
+    timeScale = readUint32(data, offset);
+    offset += 4;
+    var leftPresentationTime = readUint32(data, offset);
+    offset += 4;
+    var rightPresentationTime = readUint32(data, offset);
+    offset += 4;
+    presentationTime = Math.pow(2, 32) * leftPresentationTime + rightPresentationTime;
+
+    if (!Number.isSafeInteger(presentationTime)) {
+      presentationTime = Number.MAX_SAFE_INTEGER; // eslint-disable-next-line no-console
+
+      console.warn('Presentation time exceeds safe integer limit and wrapped to max safe integer in parsing emsg box');
+    }
+
+    eventDuration = readUint32(data, offset);
+    offset += 4;
+    id = readUint32(data, offset);
+    offset += 4;
+
+    while (bin2str(data.subarray(offset, offset + 1)) !== '\0') {
+      schemeIdUri += bin2str(data.subarray(offset, offset + 1));
+      offset += 1;
+    }
+
+    schemeIdUri += bin2str(data.subarray(offset, offset + 1));
+    offset += 1;
+
+    while (bin2str(data.subarray(offset, offset + 1)) !== '\0') {
+      value += bin2str(data.subarray(offset, offset + 1));
+      offset += 1;
+    }
+
+    value += bin2str(data.subarray(offset, offset + 1));
+    offset += 1;
+  }
+
+  var payload = data.subarray(offset, data.byteLength);
+  return {
+    schemeIdUri: schemeIdUri,
+    value: value,
+    timeScale: timeScale,
+    presentationTime: presentationTime,
+    presentationTimeDelta: presentationTimeDelta,
+    eventDuration: eventDuration,
+    id: id,
+    payload: payload
+  };
+}
 
 /***/ }),
 
@@ -25606,6 +26407,7 @@ var OutputFilter = /*#__PURE__*/function () {
 
   _proto.reset = function reset() {
     this.cueRanges = [];
+    this.startTime = null;
   };
 
   return OutputFilter;
@@ -27018,6 +27820,14 @@ var XhrLoader = /*#__PURE__*/function () {
 
       if (!xhr.readyState) {
         xhr.open('GET', context.url, true);
+      }
+
+      var headers = this.context.headers;
+
+      if (headers) {
+        for (var header in headers) {
+          xhr.setRequestHeader(header, headers[header]);
+        }
       }
     } catch (e) {
       // IE11 throws an exception on xhr.open if attempting to access an HTTP resource over HTTPS
