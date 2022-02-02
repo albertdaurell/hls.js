@@ -1,5 +1,5 @@
 {
-  "version": "1.2.0-adf",
+  "version": "1.2.0-2Feb-adf",
   "name": "hls.js",
   "license": "Apache-2.0",
   "description": "JavaScript HLS client using MediaSourceExtension",
