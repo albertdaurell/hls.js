@@ -2070,7 +2070,9 @@ var AudioStreamController = /*#__PURE__*/function (_BaseStreamController) {
     _BaseStreamController.prototype._handleFragmentLoadComplete.call(this, fragLoadedData);
   };
 
-  _proto.onBufferReset = function onBufferReset() {
+  _proto.onBufferReset = function
+    /* event: Events.BUFFER_RESET */
+  onBufferReset() {
     // reset reference to sourcebuffers
     this.mediaBuffer = this.videoBuffer = null;
     this.loadedmetadata = false;
@@ -17299,7 +17301,7 @@ var Hls = /*#__PURE__*/function () {
   }], [{
     key: "version",
     get: function get() {
-      return "1.0.7-adf";
+      return "1.2.0-adf";
     }
   }, {
     key: "Events",
